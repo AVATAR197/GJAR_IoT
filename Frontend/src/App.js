@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemsSideBar from "./components/ItemsSideDrawer/ItemsSideDrawer";
 import Backdrop from "./components/UI/Backdrop/Backdrop";
 import Settings from "./components/Settings/Settings";
+import Download from "./components/Download/Download";
 import { useStore } from "./store/store";
 import RouteTransition from "./hoc/RouterTransitions/RouteTransition";
 import AnimatedRoutes from "./hoc/RouterTransitions/AnimatedRoutes";
@@ -37,13 +38,14 @@ function App() {
                     <RouteTransition path="/about" exact={true} slideUp={0}>
                         <About />
                     </RouteTransition>
-                    <RouteTransition path="/room/:id" exact={true} slideUp={0}>
+                    <RouteTransition path="/room/:id" slideUp={0}>
                         <Main />
                     </RouteTransition>
                     <RouteTransition path="*" slideUp={0}>
                         <Page404 />
                     </RouteTransition>
                 </AnimatedRoutes>
+                <Download />
                 <Settings />
                 <Backdrop isVisible={store.sidebarOpen || (store.settingsSidebarOpen && width < 1000)} />
             </div>
